@@ -17,7 +17,7 @@ Module AccumulateMessagesFunction
         Do Until quit = True
             Console.WriteLine("Type a message for the user")
             newMessage = Console.ReadLine()
-
+            clear = False
             If newMessage = "quit" Then
                 quit = True
             ElseIf newMessage = "show" Then
@@ -26,8 +26,6 @@ Module AccumulateMessagesFunction
                 Console.WriteLine("messages cleared")
                 clear = True
                 storage = UserMessages(newMessage, clear, storage)
-
-                'comment storage
             Else
                 UserMessages(newMessage, clear, storage)
                 storage = UserMessages(newMessage, clear, storage)
@@ -38,7 +36,7 @@ Module AccumulateMessagesFunction
     Function UserMessages(ByVal newMessage As String, ByVal clear As Boolean, ByVal storage As String) As String
         Dim messages As String = newMessage + vbNewLine + storage
         If clear = True Then
-            messages = Nothing ' " "
+            messages = Nothing
         ElseIf newMessage = "show" Then
             messages = storage
         End If
