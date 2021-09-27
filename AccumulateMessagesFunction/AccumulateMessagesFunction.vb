@@ -1,8 +1,8 @@
 ﻿'Sebastian Soto
 'RCET0265
 'Fall 2021
-'_projectName
-'_gitURL
+'AccumulateMessageFunction
+'https://github.com/SebastianSotoMk4/AccumulateMessagesFunction.git
 Option Strict On
 Option Explicit On
 Module AccumulateMessagesFunction
@@ -11,7 +11,9 @@ Module AccumulateMessagesFunction
         Dim clear As Boolean
         Dim storage As String
         Dim quit As Boolean
-
+        'type "quit" to close program 
+        'type "show" to view messages
+        'type "clear" to clear erase stored messages
         Do Until quit = True
             Console.WriteLine("Type a message for the user")
             newMessage = Console.ReadLine()
@@ -24,6 +26,8 @@ Module AccumulateMessagesFunction
                 Console.WriteLine("messages cleared")
                 clear = True
                 storage = UserMessages(newMessage, clear, storage)
+
+                'comment storage
             Else
                 UserMessages(newMessage, clear, storage)
                 storage = UserMessages(newMessage, clear, storage)
@@ -33,7 +37,6 @@ Module AccumulateMessagesFunction
     End Sub
     Function UserMessages(ByVal newMessage As String, ByVal clear As Boolean, ByVal storage As String) As String
         Dim messages As String = newMessage + vbNewLine + storage
-        'Dim staticMessages As String = ""
         If clear = True Then
             messages = Nothing ' " "
         ElseIf newMessage = "show" Then
@@ -42,4 +45,3 @@ Module AccumulateMessagesFunction
         Return messages
     End Function
 End Module
-'Dim storeStr As String = newMessage + vbNewLine + storage
